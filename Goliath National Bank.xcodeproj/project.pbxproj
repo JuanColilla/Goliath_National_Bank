@@ -3,19 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D5F37F12583E4C200AC50C4 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D5F37F02583E4C200AC50C4 /* ProductDetail.storyboard */; };
+		0D5F37F52583F1BA00AC50C4 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5F37F42583F1BA00AC50C4 /* IQKeyboardManagerSwift */; };
+		0D5F37FA25841E2900AC50C4 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F37F925841E2900AC50C4 /* DataDecoder.swift */; };
+		0D5F37FD2584EBC600AC50C4 /* SKUModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F37FC2584EBC600AC50C4 /* SKUModel.swift */; };
 		0DAB66E7257EE6ED00CFA95F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB66E6257EE6ED00CFA95F /* AppDelegate.swift */; };
 		0DAB66E9257EE6ED00CFA95F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB66E8257EE6ED00CFA95F /* SceneDelegate.swift */; };
 		0DAB66EB257EE6ED00CFA95F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB66EA257EE6ED00CFA95F /* ViewController.swift */; };
 		0DAB66EE257EE6ED00CFA95F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB66EC257EE6ED00CFA95F /* Main.storyboard */; };
 		0DAB66F0257EE6EF00CFA95F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB66EF257EE6EF00CFA95F /* Assets.xcassets */; };
 		0DAB66F3257EE6EF00CFA95F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAB66F1257EE6EF00CFA95F /* LaunchScreen.storyboard */; };
+		0DAB6701257EF40300CFA95F /* DataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAB6700257EF40300CFA95F /* DataRetriever.swift */; };
+		0DDD8C6F25850A51009827EE /* DataPersistence.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD8C6D25850A51009827EE /* DataPersistence.xcdatamodeld */; };
+		0DDD8C74258534E2009827EE /* ConversionRatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD8C73258534E2009827EE /* ConversionRatesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D5F37F02583E4C200AC50C4 /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
+		0D5F37F925841E2900AC50C4 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		0D5F37FC2584EBC600AC50C4 /* SKUModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKUModel.swift; sourceTree = "<group>"; };
 		0DAB66E3257EE6ED00CFA95F /* Goliath National Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goliath National Bank.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAB66E6257EE6ED00CFA95F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAB66E8257EE6ED00CFA95F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,9 @@
 		0DAB66EF257EE6EF00CFA95F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DAB66F2257EE6EF00CFA95F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DAB66F4257EE6EF00CFA95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DAB6700257EF40300CFA95F /* DataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRetriever.swift; sourceTree = "<group>"; };
+		0DDD8C6E25850A51009827EE /* DataPersistence.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataPersistence.xcdatamodel; sourceTree = "<group>"; };
+		0DDD8C73258534E2009827EE /* ConversionRatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRatesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D5F37F52583F1BA00AC50C4 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +72,59 @@
 			children = (
 				0DAB66E6257EE6ED00CFA95F /* AppDelegate.swift */,
 				0DAB66E8257EE6ED00CFA95F /* SceneDelegate.swift */,
-				0DAB66EA257EE6ED00CFA95F /* ViewController.swift */,
-				0DAB66EC257EE6ED00CFA95F /* Main.storyboard */,
-				0DAB66EF257EE6EF00CFA95F /* Assets.xcassets */,
-				0DAB66F1257EE6EF00CFA95F /* LaunchScreen.storyboard */,
+				0DAB66FE257EF3D400CFA95F /* Model */,
+				0DAB66FC257EF3C600CFA95F /* Controller */,
+				0DAB66FB257EF3B800CFA95F /* View */,
 				0DAB66F4257EE6EF00CFA95F /* Info.plist */,
 			);
 			path = "Goliath National Bank";
+			sourceTree = "<group>";
+		};
+		0DAB66FB257EF3B800CFA95F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB66EC257EE6ED00CFA95F /* Main.storyboard */,
+				0D5F37F02583E4C200AC50C4 /* ProductDetail.storyboard */,
+				0DAB66EF257EE6EF00CFA95F /* Assets.xcassets */,
+				0DAB66F1257EE6EF00CFA95F /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DAB66FC257EF3C600CFA95F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB66EA257EE6ED00CFA95F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0DAB66FE257EF3D400CFA95F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB66FF257EF3EA00CFA95F /* API */,
+				0DDD8C7125850A5A009827EE /* Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0DAB66FF257EF3EA00CFA95F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB6700257EF40300CFA95F /* DataRetriever.swift */,
+				0D5F37F925841E2900AC50C4 /* DataDecoder.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		0DDD8C7125850A5A009827EE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F37FC2584EBC600AC50C4 /* SKUModel.swift */,
+				0DDD8C73258534E2009827EE /* ConversionRatesModel.swift */,
+				0DDD8C6D25850A51009827EE /* DataPersistence.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +143,9 @@
 			dependencies = (
 			);
 			name = "Goliath National Bank";
+			packageProductDependencies = (
+				0D5F37F42583F1BA00AC50C4 /* IQKeyboardManagerSwift */,
+			);
 			productName = "Goliath National Bank";
 			productReference = 0DAB66E3257EE6ED00CFA95F /* Goliath National Bank.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 0DAB66DA257EE6ED00CFA95F;
+			packageReferences = (
+				0D5F37F32583F1BA00AC50C4 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 0DAB66E4257EE6ED00CFA95F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +193,7 @@
 				0DAB66F3257EE6EF00CFA95F /* LaunchScreen.storyboard in Resources */,
 				0DAB66F0257EE6EF00CFA95F /* Assets.xcassets in Resources */,
 				0DAB66EE257EE6ED00CFA95F /* Main.storyboard in Resources */,
+				0D5F37F12583E4C200AC50C4 /* ProductDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DAB6701257EF40300CFA95F /* DataRetriever.swift in Sources */,
+				0DDD8C6F25850A51009827EE /* DataPersistence.xcdatamodeld in Sources */,
+				0D5F37FA25841E2900AC50C4 /* DataDecoder.swift in Sources */,
+				0DDD8C74258534E2009827EE /* ConversionRatesModel.swift in Sources */,
 				0DAB66EB257EE6ED00CFA95F /* ViewController.swift in Sources */,
 				0DAB66E7257EE6ED00CFA95F /* AppDelegate.swift in Sources */,
 				0DAB66E9257EE6ED00CFA95F /* SceneDelegate.swift in Sources */,
+				0D5F37FD2584EBC600AC50C4 /* SKUModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +413,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0D5F37F32583F1BA00AC50C4 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0D5F37F42583F1BA00AC50C4 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D5F37F32583F1BA00AC50C4 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0DDD8C6D25850A51009827EE /* DataPersistence.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0DDD8C6E25850A51009827EE /* DataPersistence.xcdatamodel */,
+			);
+			currentVersion = 0DDD8C6E25850A51009827EE /* DataPersistence.xcdatamodel */;
+			path = DataPersistence.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0DAB66DB257EE6ED00CFA95F /* Project object */;
 }
