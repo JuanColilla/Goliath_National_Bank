@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,7 +39,7 @@
 		0D95D78025858E7D0066A892 /* ConversionRateModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversionRateModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0D95D78125858E7D0066A892 /* ConversionRateModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversionRateModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0D95D78C2585A3EF0066A892 /* SKUTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKUTableViewCell.swift; sourceTree = "<group>"; };
-		0DAB66E3257EE6ED00CFA95F /* Goliath National Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goliath National Bank.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DAB66E3257EE6ED00CFA95F /* GNB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAB66E6257EE6ED00CFA95F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAB66E8257EE6ED00CFA95F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0DAB66EA257EE6ED00CFA95F /* SKUListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKUListVC.swift; sourceTree = "<group>"; };
@@ -63,6 +63,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D8AD77D25866CCB00AD44EF /* SKU List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB66EA257EE6ED00CFA95F /* SKUListVC.swift */,
+				0D95D78C2585A3EF0066A892 /* SKUTableViewCell.swift */,
+			);
+			path = "SKU List Screen";
+			sourceTree = "<group>";
+		};
+		0D8AD77E25866CE300AD44EF /* Transaction List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0D8AD7712586685200AD44EF /* TransactionsDetailVC.swift */,
+			);
+			path = "Transaction List Screen";
+			sourceTree = "<group>";
+		};
+		0D8AD78225866D5400AD44EF /* Application Life Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				0DAB66E6257EE6ED00CFA95F /* AppDelegate.swift */,
+				0DAB66E8257EE6ED00CFA95F /* SceneDelegate.swift */,
+			);
+			path = "Application Life Cycle";
+			sourceTree = "<group>";
+		};
 		0D95D79A258667570066A892 /* SKUModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +129,7 @@
 		0DAB66E4257EE6ED00CFA95F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB66E3257EE6ED00CFA95F /* Goliath National Bank.app */,
+				0DAB66E3257EE6ED00CFA95F /* GNB.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,8 +137,7 @@
 		0DAB66E5257EE6ED00CFA95F /* Goliath National Bank */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB66E6257EE6ED00CFA95F /* AppDelegate.swift */,
-				0DAB66E8257EE6ED00CFA95F /* SceneDelegate.swift */,
+				0D8AD78225866D5400AD44EF /* Application Life Cycle */,
 				0DAB66FE257EF3D400CFA95F /* Model */,
 				0DAB66FC257EF3C600CFA95F /* Controller */,
 				0DAB66FB257EF3B800CFA95F /* View */,
@@ -135,9 +160,8 @@
 		0DAB66FC257EF3C600CFA95F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0DAB66EA257EE6ED00CFA95F /* SKUListVC.swift */,
-				0D95D78C2585A3EF0066A892 /* SKUTableViewCell.swift */,
-				0D8AD7712586685200AD44EF /* TransactionsDetailVC.swift */,
+				0D8AD77D25866CCB00AD44EF /* SKU List Screen */,
+				0D8AD77E25866CE300AD44EF /* Transaction List Screen */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,9 +169,9 @@
 		0DAB66FE257EF3D400CFA95F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0D95D79E258667820066A892 /* Data Persistence */,
 				0DAB66FF257EF3EA00CFA95F /* API */,
-				0DDD8C7125850A5A009827EE /* Data */,
+				0D95D79E258667820066A892 /* Data Persistence */,
+				0DDD8C7125850A5A009827EE /* DataFlow */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,17 +180,17 @@
 			isa = PBXGroup;
 			children = (
 				0DAB6700257EF40300CFA95F /* DataRetriever.swift */,
-				0D5F37F925841E2900AC50C4 /* DataDecoder.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
 		};
-		0DDD8C7125850A5A009827EE /* Data */ = {
+		0DDD8C7125850A5A009827EE /* DataFlow */ = {
 			isa = PBXGroup;
 			children = (
+				0D5F37F925841E2900AC50C4 /* DataDecoder.swift */,
 				0D95D77825856B8D0066A892 /* DataLoader.swift */,
 			);
-			path = Data;
+			path = DataFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +213,7 @@
 				0D5F37F42583F1BA00AC50C4 /* IQKeyboardManagerSwift */,
 			);
 			productName = "Goliath National Bank";
-			productReference = 0DAB66E3257EE6ED00CFA95F /* Goliath National Bank.app */;
+			productReference = 0DAB66E3257EE6ED00CFA95F /* GNB.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -198,6 +222,7 @@
 		0DAB66DB257EE6ED00CFA95F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
@@ -414,9 +439,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JuanColilla.Goliath-National-Bank";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GNB;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -433,9 +458,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JuanColilla.Goliath-National-Bank";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GNB;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

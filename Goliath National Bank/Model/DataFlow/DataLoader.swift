@@ -47,21 +47,6 @@ class DataLoader {
             
             completion(transactionsOrganized)
         }
-        
-        // if first time
-        //  load data from server
-        // else
-        //  load data from database
-        //  update database data
-        
-        // Lógica para organizar todas las transacciones en base a si comparten un SKU o no:
-        
-        // --------------------------------------------------------------------------------------
-        //  for model in dataToShow
-        //   if element.sku == string
-        //    model.append(element)
-        //   else
-        //    datatoshow.append(element.sku : element)
     }
     
     
