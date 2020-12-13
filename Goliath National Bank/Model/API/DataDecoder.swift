@@ -20,11 +20,28 @@ class DataDecoder {
     public func decodeDataReceived(typeOfData: requestType ,dataToDecode: Data) -> Any? {
         do {
             if typeOfData == .sku {
-                let jsonDecoded = try decoder.decode(SKUModel.self, from: dataToDecode)
-                return jsonDecoded
+                guard let jsonDecoded = try JSONSerialization.jsonObject(with: dataToDecode, options: []) as? [[String: Any]] else {
+                    return nil
+                }
+                let jsonArray: [SKUModel] = jsonDecoded.compactMap { //[weak self] in
+                    
+                    guard let sku = $0["sku"] as? String,
+                    let amount = $0["amount"] as? String,
+                    let currency = $0["currency"] as? String
+                    else { return nil }
+                
+                    let skuModel = SKUModel(context: CoreDataStack.sharedInstance.context)
+                    skuModel.sku = sku
+                    skuModel.amount = amount
+                    skuModel.currency = currency
+                    
+                    return skuModel
+                }
+                
+                return jsonArray
             } else {
-                let jsonDecoded = try decoder.decode(ConversionRateModel.self, from: dataToDecode)
-                return jsonDecoded
+                //let jsonDecoded = try decoder.decode(ConversionRateModel.self, from: dataToDecode)
+                //return jsonDecoded
             }
         } catch let errorDecoding {
             print(errorDecoding.localizedDescription)

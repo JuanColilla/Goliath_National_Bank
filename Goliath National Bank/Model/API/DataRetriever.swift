@@ -48,6 +48,7 @@ class DataRetriever {
             guard let data = data else {
                 return
             }
+            //print(String(data: data, encoding: .utf8) as Any)
             completion(data)
         }
         task.resume()
