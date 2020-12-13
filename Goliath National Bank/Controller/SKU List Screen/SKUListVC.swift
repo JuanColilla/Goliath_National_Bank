@@ -10,12 +10,17 @@ import UIKit
 class SKUListVC: UIViewController {
 
     // MARK: Data Variables
-    fileprivate let reuseIdentifier = "transactionCell"
+    fileprivate let reuseIdentifier = "transactionCollectionCell"
     fileprivate let dataLoader = DataLoader()
     fileprivate var transactionsToShow = [Transaction]()
     
     // MARK: IBOutlets
     @IBOutlet weak var transactionsTableView: UITableView!
+    
+    
+    @IBAction func cleanData(_ sender: UIButton) {
+        CoreDataStack.sharedInstance.deleteAllData()
+    }
     
     
     // MARK: View Life Cycle
@@ -29,16 +34,33 @@ class SKUListVC: UIViewController {
         loadData()
     }
     
+    // MARK: Segue Data Bridge
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? TransactionsDetailVC {
+            if let cell = sender as? SKUTableViewCell {
+                if let indexPath = transactionsTableView.indexPath(for: cell) {
+                    destinationVC.transactions = transactionsToShow[indexPath.row].transactions
+                }
+            }
+        }
+    }
+    
     // MARK: Custom Functions
     
     
     fileprivate func loadData() {
-        dataLoader.loadData(completion: { (transactions) in
+        dataLoader.loadData(completion: { (transactions, source) in
             self.transactionsToShow = transactions
             DispatchQueue.main.async {
                 self.transactionsTableView.reloadData()
+                if source == .API {
+                    self.showInfoAlert(title: "Fuente de datos", message: "Los datos se han cargado desde la API correctamente.", buttonOneText: "OK", style: .alert)
+                } else {
+                    self.showInfoAlert(title: "Fuente de datos", message: "No dispones de conexión a internet por lo que se han cargado los datos desde la caché.", buttonOneText: "OK", style: .alert)
+                }
             }
         })
+        
     }
 
 
@@ -57,6 +79,7 @@ extension SKUListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = self.transactionsTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SKUTableViewCell
         
         cell.transactionSKULabel.text = "SKU - \(transactionsToShow[indexPath.row].sku)"
+        cell.transactions = transactionsToShow[indexPath.row].transactions
         
         return cell
     }

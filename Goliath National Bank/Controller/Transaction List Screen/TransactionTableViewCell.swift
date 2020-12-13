@@ -1,5 +1,5 @@
 //
-//  SKUTableViewCell.swift
+//  TransactionTableViewCell.swift
 //  Goliath National Bank
 //
 //  Created by Juan Colilla on 13/12/20.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class SKUTableViewCell: UITableViewCell {
+class TransactionTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var transactionSKULabel: UILabel!
+    @IBOutlet weak var transactionLabel: UILabel!
     
-    var transactions: [SKUModel] = [SKUModel]()
+    //var sku: SKUModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()

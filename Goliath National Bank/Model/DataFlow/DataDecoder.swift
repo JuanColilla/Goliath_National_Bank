@@ -20,16 +20,19 @@ class DataDecoder {
     public func decodeDataReceived(typeOfData: requestType ,dataToDecode: Data) -> Any? {
         do {
             if typeOfData == .sku {
+                
+                // Proceso a seguir si los datos a decodificar del JSON pertenecen a la lista de transacciones:
+                
                 guard let jsonDecoded = try JSONSerialization.jsonObject(with: dataToDecode, options: []) as? [[String: Any]] else {
                     return nil
                 }
-                let jsonArray: [SKUModel] = jsonDecoded.compactMap { //[weak self] in
+                let jsonArray: [SKUModel] = jsonDecoded.compactMap {
                     
                     guard let sku = $0["sku"] as? String,
-                    let amount = $0["amount"] as? String,
-                    let currency = $0["currency"] as? String
+                          let amount = $0["amount"] as? String,
+                          let currency = $0["currency"] as? String
                     else { return nil }
-                
+                    
                     let skuModel = SKUModel(context: CoreDataStack.sharedInstance.context)
                     skuModel.sku = sku
                     skuModel.amount = amount
@@ -37,12 +40,36 @@ class DataDecoder {
                     
                     return skuModel
                 }
+                //CoreDataStack.sharedInstance.saveContext()
+                return jsonArray
+                
+            } else {
+                
+                // Proceso a seguir si los datos a decodificar del JSON pertenecen a la tabla de conversiones entre monedas:
+                
+                guard let jsonDecoded = try JSONSerialization.jsonObject(with: dataToDecode, options: []) as? [[String: Any]] else {
+                    return nil
+                }
+                let jsonArray: [ConversionRateModel] = jsonDecoded.compactMap {
+                    
+                    guard let from = $0["from"] as? String,
+                          let to = $0["to"] as? String,
+                          let rate = $0["rate"] as? String
+                    else { return nil }
+                    
+                    let conversionRateModel = ConversionRateModel(context: CoreDataStack.sharedInstance.context)
+                    conversionRateModel.from = from
+                    conversionRateModel.to = to
+                    conversionRateModel.rate = rate
+                    
+                    return conversionRateModel
+                }
                 
                 return jsonArray
-            } else {
-                //let jsonDecoded = try decoder.decode(ConversionRateModel.self, from: dataToDecode)
-                //return jsonDecoded
             }
+            
+            
+            
         } catch let errorDecoding {
             print(errorDecoding.localizedDescription)
         }

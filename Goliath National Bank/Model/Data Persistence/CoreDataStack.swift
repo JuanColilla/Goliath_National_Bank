@@ -42,4 +42,24 @@ class CoreDataStack: NSObject {
         }
     }
     
+    func fetchCachedData() -> [SKUModel] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SKUModel")
+         
+        var cachedData = [SKUModel]()
+         do {
+            cachedData = try context.fetch(request) as! [SKUModel]
+         } catch let error {
+            print("Error recuperando los Places guardados...\(error.localizedDescription)")
+         }
+        return cachedData
+    }
+    
+    
+    func deleteAllData() {
+        for result in fetchCachedData() {
+            context.delete(result)
+        }
+        saveContext()
+    }
+    
 }

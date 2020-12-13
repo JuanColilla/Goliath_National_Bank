@@ -8,10 +8,28 @@
 import UIKit
 
 class TransactionsDetailVC: UIViewController {
+    
+    fileprivate let reuseIdentifier = "transactionCell"
+    
+    @IBOutlet weak var transactionsTitleLabel: UILabel!
+    @IBOutlet weak var transactionsTableView: UITableView!
+    
+    @IBOutlet weak var transactionsAmountSumLabel: UILabel!
+    @IBOutlet weak var totalEURAmountLabel: UILabel!
+    @IBOutlet weak var totalUSDAmountLabel: UILabel!
+    @IBOutlet weak var totalCADAmountLabel: UILabel!
+    @IBOutlet weak var totalAUDAmountLabel: UILabel!
+    
+    var transactions: [SKUModel] = [SKUModel]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        transactionsTableView.delegate = self
+        transactionsTableView.dataSource = self
+        
+        transactionsTitleLabel.text = "Transacciones con el SKU - \(transactions.first?.sku ?? "NONE")"
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +44,24 @@ class TransactionsDetailVC: UIViewController {
     }
     */
 
+}
+
+
+extension TransactionsDetailVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return transactions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.transactionsTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! TransactionTableViewCell
+        
+        let cellTransaction = transactions[indexPath.row]
+        
+        cell.transactionLabel.text = "\(cellTransaction.sku) - CURRENCY - \(cellTransaction.amount)"
+        
+        return cell
+    }
+    
+    
 }
