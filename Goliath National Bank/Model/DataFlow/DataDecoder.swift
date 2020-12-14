@@ -17,7 +17,7 @@ class DataDecoder {
     ///   - typeOfData: Depending on this param (.sku or .ratio) the returned object will match the received JSON Object from the DataRetriever main function.
     ///   - dataToDecode: Data obtained from DataRetriever main function, call to the API.
     /// - Returns: It may return 3 types, if typeOfData is .sku it should return SKUModel, if .ratio should return ConversionRateModel, else will return nil.
-    public func decodeDataReceived(typeOfData: requestType ,dataToDecode: Data) -> Any? {
+    public func decodeDataReceived(typeOfData: RequestType ,dataToDecode: Data) -> Any? {
         do {
             if typeOfData == .sku {
                 

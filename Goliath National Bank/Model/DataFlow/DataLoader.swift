@@ -7,11 +7,19 @@
 
 import Foundation
 
+/// Loader class, its purpose is to provide the requested data either from the API or Cached Storage if Internet Connectivity isn't available.
 class DataLoader {
     
     private let dataRetriever = DataRetriever()
     private let jsonDecoder = DataDecoder()
     
+    static let sharedInstance = DataLoader()
+    
+    private init() {}
+    
+    /// Load Transactions from where they are available.
+    /// - Parameter completion: Transactions retrieved from API or CoreData and it's source.
+    /// - Returns: Completion
     func loadData(completion: @escaping ([Transaction], SourceType) -> ()) {
         var transactions = [SKUModel]()
         
@@ -23,13 +31,16 @@ class DataLoader {
                 completion(self.organizeTransactions(transactions: transactions), .API)
             }
         } else {
-            transactions = CoreDataStack.sharedInstance.fetchCachedData()
+            transactions = CoreDataStack.sharedInstance.fetchCachedTransactionsData()
             
             completion(self.organizeTransactions(transactions: transactions), .CoreData)
         }
         
     }
     
+    /// Organize Transactions based on the same SKU, avoiding +5.000 cells on the TableView (even using reusableCells)
+    /// - Parameter transactions: All downloaded or stored Transactions
+    /// - Returns: Organized Transactions vía "key - value" (SKU - Transactions)
     func organizeTransactions(transactions: [SKUModel]) -> [Transaction] {
         var uniqueSKU = [String]()
         var transactionsOrganized = [Transaction]()
@@ -61,27 +72,24 @@ class DataLoader {
         return transactionsOrganized
     }
     
+    /// Download or fetch Conversion Rates.
+    /// - Parameter completion: Conversion Rates found.
+    /// - Returns: Completion
     func loadConversionRates(completion: @escaping ([ConversionRateModel]) -> ()) {
         var conversionRates = [ConversionRateModel]()
         
-        dataRetriever.getDataFromServer(typeOfData: .ratio) { (conversionRateModelJSON) in
-            conversionRates = self.jsonDecoder.decodeDataReceived(typeOfData: .ratio, dataToDecode: conversionRateModelJSON) as! [ConversionRateModel]
+        if NetworkMonitor.sharedInstance.isConnected {
+            dataRetriever.getDataFromServer(typeOfData: .ratio) { (conversionRateModelJSON) in
+                conversionRates = self.jsonDecoder.decodeDataReceived(typeOfData: .ratio, dataToDecode: conversionRateModelJSON) as! [ConversionRateModel]
+                CoreDataStack.sharedInstance.saveContext()
+                completion(conversionRates)
+            }
+        } else {
+            conversionRates = CoreDataStack.sharedInstance.fetchCachedRatiosData()
             
             completion(conversionRates)
         }
-        
-        
     }
     
     
-}
-
-class Transaction {
-    var sku: String = ""
-    var transactions: [SKUModel] = [SKUModel]()
-    
-    init(sku: String, transactions: [SKUModel]) {
-        self.sku = sku
-        self.transactions = transactions
-    }
 }

@@ -20,7 +20,13 @@ class TransactionsDetailVC: UIViewController {
     @IBOutlet weak var totalCADAmountLabel: UILabel!
     @IBOutlet weak var totalAUDAmountLabel: UILabel!
     
+    // La idea era que pulsar este botón cambiase la moneda de todas las transacciones de la lista.
+    @IBAction func changeCurrencyButton(_ sender: UIButton) {
+    }
+    
+    
     var transactions: [SKUModel] = [SKUModel]()
+    var currencyConversor = CurrencyConversor()
     
 
     override func viewDidLoad() {
@@ -30,19 +36,15 @@ class TransactionsDetailVC: UIViewController {
         transactionsTableView.dataSource = self
         
         transactionsTitleLabel.text = "Transacciones con el SKU - \(transactions.first?.sku ?? "NONE")"
+        
+        loadData()
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func loadData() {
     }
-    */
 
 }
 
@@ -58,7 +60,7 @@ extension TransactionsDetailVC: UITableViewDelegate, UITableViewDataSource {
         
         let cellTransaction = transactions[indexPath.row]
         
-        cell.transactionLabel.text = "\(cellTransaction.sku) - CURRENCY - \(cellTransaction.amount)"
+        cell.transactionLabel.text = "\(cellTransaction.sku) - \(cellTransaction.currency) - \(cellTransaction.amount)"
         
         return cell
     }

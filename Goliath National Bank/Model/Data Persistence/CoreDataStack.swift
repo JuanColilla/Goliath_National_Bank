@@ -42,21 +42,38 @@ class CoreDataStack: NSObject {
         }
     }
     
-    func fetchCachedData() -> [SKUModel] {
+    func fetchCachedTransactionsData() -> [SKUModel] {
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SKUModel")
-         
+        
         var cachedData = [SKUModel]()
-         do {
+        do {
             cachedData = try context.fetch(request) as! [SKUModel]
-         } catch let error {
+        } catch let error {
             print("Error recuperando los Places guardados...\(error.localizedDescription)")
-         }
+        }
+        return cachedData
+    }
+    
+    func fetchCachedRatiosData() -> [ConversionRateModel] {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ConversionRateModel")
+        
+        var cachedData = [ConversionRateModel]()
+        do {
+            cachedData = try context.fetch(request) as! [ConversionRateModel]
+        } catch let error {
+            print("Error recuperando los Places guardados...\(error.localizedDescription)")
+        }
         return cachedData
     }
     
     
     func deleteAllData() {
-        for result in fetchCachedData() {
+        for result in fetchCachedTransactionsData() {
+            context.delete(result)
+        }
+        for result in fetchCachedRatiosData() {
             context.delete(result)
         }
         saveContext()

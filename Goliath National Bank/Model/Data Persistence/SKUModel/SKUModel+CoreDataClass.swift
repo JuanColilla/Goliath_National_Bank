@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 
+/// CoreData Class
 public class SKUModel: NSManagedObject {
 
 }

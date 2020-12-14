@@ -17,7 +17,7 @@ class DataRetriever {
     ///   - typeOfData: Depending on what you want to download, you must specify ".sku" for transactions or ".ratio" for conversion ratios.
     ///   - completion: Data downloaded from server, unparsed JSON file.
     /// - Returns: Void, if returns from other than completionHandler will mean that this function failed at some point.
-    public func getDataFromServer(typeOfData: requestType , completion: @escaping (Data) -> ()) {
+    public func getDataFromServer(typeOfData: RequestType , completion: @escaping (Data) -> ()) {
         var baseURL = "http://quiet-stone-2094.herokuapp.com"
         
         if typeOfData == .sku {

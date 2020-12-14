@@ -8,7 +8,7 @@
 import Foundation
 
 /// Enum to pass on params to the DataRetriever "getDataFromServer", written to avoid code redundancy.
-enum requestType {
+enum RequestType {
     case sku
     case ratio
 }

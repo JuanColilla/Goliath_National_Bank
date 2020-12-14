@@ -11,6 +11,7 @@ import SystemConfiguration
 
 class NetworkMonitor {
     
+    /// Instancia global / Singleton
     static let sharedInstance = NetworkMonitor()
     
     private let queue = DispatchQueue(label: "NetworkMonitor")
@@ -23,6 +24,7 @@ class NetworkMonitor {
         
     }
     
+    /// Se comprobará mientras la app esté abierta la conectividad de red.
     public func startMonitoring() {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
@@ -30,6 +32,7 @@ class NetworkMonitor {
         }
     }
     
+    /// Detener la constante comprobación de conectividad de red.
     public func stopMonitoring() {
         monitor.cancel()
     }

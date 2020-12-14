@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
+// CoreData Properties
 extension SKUModel {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SKUModel> {
