@@ -1,4 +1,4 @@
-## Goliath National Bank
+# Goliath National Bank
 
 This application has been developed as a technical skill test for BeMobile. It is based on MVC architecture and includes dependencies both from SPM and CocoaPods.
 
