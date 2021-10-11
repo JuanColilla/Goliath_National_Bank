@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "¡Bienvenido!"; ObjectID = "3Dq-lY-Ah0"; */
+"3Dq-lY-Ah0.text" = "Welcome!";
+
+/* Class = "UITextField"; placeholder = "Nombre"; ObjectID = "97W-Rc-ZZw"; */
+"97W-Rc-ZZw.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "¡Bienvenido a bordo!"; ObjectID = "cXd-zr-xoR"; */
+"cXd-zr-xoR.text" = "Welcome aboard!";
+
+/* Class = "UIButton"; normalTitle = "¡Suit Up!"; ObjectID = "lwY-3Q-Gtf"; */
+"lwY-3Q-Gtf.normalTitle" = "¡Suit Up!";
+
+/* Class = "UILabel"; text = "Transacción - J7280"; ObjectID = "uXQ-5E-aPB"; */
+"uXQ-5E-aPB.text" = "Transaction - J7280";

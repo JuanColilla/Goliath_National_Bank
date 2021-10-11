@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "La suma total de las transacciones es de:"; ObjectID = "Ism-K2-Ez9"; */
+"Ism-K2-Ez9.text" = "La suma total de las transacciones es de:";
+
+/* Class = "UILabel"; text = "AUD - 100AUD"; ObjectID = "OaW-us-9NK"; */
+"OaW-us-9NK.text" = "AUD - 100AUD";
+
+/* Class = "UILabel"; text = "EUR - 100€"; ObjectID = "Y7p-LB-wt6"; */
+"Y7p-LB-wt6.text" = "EUR - 100€";
+
+/* Class = "UILabel"; text = "CAD - 100CAD"; ObjectID = "auu-wl-UAm"; */
+"auu-wl-UAm.text" = "CAD - 100CAD";
+
+/* Class = "UILabel"; text = "USD - 100$"; ObjectID = "dMN-Wr-ZRR"; */
+"dMN-Wr-ZRR.text" = "USD - 100$";
+
+/* Class = "UILabel"; text = "Transacciones con el SKU - XXXX"; ObjectID = "jO7-9q-pZw"; */
+"jO7-9q-pZw.text" = "Transacciones con el SKU - XXXX";
+
+/* Class = "UILabel"; text = "Transacción - J7280"; ObjectID = "qGm-2E-Mbt"; */
+"qGm-2E-Mbt.text" = "Transacción - J7280";

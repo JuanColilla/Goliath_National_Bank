@@ -1,0 +1,11 @@
+strings:
+  inputs: GoliathNationalBank/Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: GoliathNationalBank/SwiftGen/Strings.swift
+xcassets:
+  inputs:
+    - GoliathNationalBank/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: GoliathNationalBank/SwiftGen/Assets.swift

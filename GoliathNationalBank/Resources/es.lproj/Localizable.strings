@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Goliath National Bank
+
+  Created by Juan Colilla on 11/10/21.
+  
+*/
+
+"dataSourceAlertTitle" = "Fuente de datos";
+"internetUnavailableMessage" = "No dispones de conexión a internet por lo que se han cargado los datos desde la caché.";
+"welcomeMessage" = "¡Bienvenido de nuevo, %@!";
+"welcomeText" = "Bienvenido al trabajo de tu vida, desde hoy eres un agente en Goliath National Bank, para dirigirnos a ti con el respeto que tan legendario puesto merece, necesitamos conocer tu nombre, y ya sabes la relga de oro; no se admiten preguntas.";
+"invalidNameTitle" = "Nombre no válido.";
+"invalidNameMessage" = "Debes escribir un nombre válido.";
+"transactionsWithSKU" = "Transacciones con el SKU - %@";
+"ok" = "OK";
