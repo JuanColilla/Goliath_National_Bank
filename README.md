@@ -1,4 +1,4 @@
-# Goliath National Bank
+# Goliath National Bank
 
 This application has been developed as a technical skill test for BeMobile. It is based on MVC architecture and includes dependencies both from SPM and CocoaPods.
 
@@ -6,6 +6,6 @@ Automatic string literals generated with SwiftGen. API data cached with CoreData
 
 Thank you for your time, any feedback would be really appreciated.  
 
-# Instructions
+## Instructions
 
 - Pod Install needed.
